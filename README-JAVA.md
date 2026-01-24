@@ -59,7 +59,9 @@ long[] rawFingerprint = ctx.getRawFingerprint();
 
 ## Status
 
-This is a conversion of the C++ Chromaprint library to Java. The core fingerprinting algorithms have been ported, but some advanced features (like full FFT implementation, audio decoding) may need additional work for production use.
+This is a conversion of the C++ Chromaprint library to Java by Cursor.
+
+The core fingerprinting algorithms have been ported, but some advanced features (like full FFT implementation, audio decoding) may need additional work for production use.
 
 ## Differences from C++ Version
 
