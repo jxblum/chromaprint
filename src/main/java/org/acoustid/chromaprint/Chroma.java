@@ -9,7 +9,7 @@ public class Chroma implements FFTFrameConsumer {
     private int frameSize;
     private int sampleRate;
     private FeatureVectorConsumer consumer;
-    
+
     public Chroma(int minFreq, int maxFreq, int frameSize, int sampleRate, FeatureVectorConsumer consumer) {
         this.minFreq = minFreq;
         this.maxFreq = maxFreq;
@@ -17,15 +17,15 @@ public class Chroma implements FFTFrameConsumer {
         this.sampleRate = sampleRate;
         this.consumer = consumer;
     }
-    
+
     public void reset() {
         // Reset internal state
     }
-    
+
     @Override
     public void consume(FFTFrame frame) {
         // Simplified chroma calculation
-        // Full implementation would compute chroma features from FFT
         // This is a placeholder that allows compilation
+        // TODO: Full implementation would compute chroma features from FFT
     }
 }
