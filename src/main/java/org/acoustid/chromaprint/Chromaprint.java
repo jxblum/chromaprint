@@ -244,12 +244,18 @@ public class Chromaprint {
             return null;
         }
         return new FingerprintResult(
-            decompressor.getOutput(),
+            toPrimitiveLongArray(decompressor.getOutput()),
             decompressor.getAlgorithm()
         );
     }
 
-    
+    private static long[] toPrimitiveLongArray(List<Long> list) {
+        long[] array = new long[list.size()];
+        for (int index= 0; index < array.length; index++) {
+            array[index] = list.get(index);
+        }
+        return array;
+    }
 
     /**
      * Generate a single 32-bit hash for a raw fingerprint.
