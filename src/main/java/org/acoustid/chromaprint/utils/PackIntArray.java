@@ -117,7 +117,7 @@ public class PackIntArray {
             output.add((byte)(((s0 & 0xc0) >> 6) | ((s1 & 0x01) << 2)));
             output.add((byte)((s1 & 0x0e) >> 1));
             output.add((byte)((s1 & 0x70) >> 4));
-            output.add((byte)(((s1 & 0x80) >> 7) | ((s2 & 0x03) << 1)));
+            output.add((byte)((s1 & 0x80) >> 7) | ((s2 & 0x03) << 1)));
             output.add((byte)((s2 & 0x1c) >> 2));
             output.add((byte)((s2 & 0xe0) >> 5));
             size -= 3;
