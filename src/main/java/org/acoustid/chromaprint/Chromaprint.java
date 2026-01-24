@@ -3,9 +3,10 @@
 
 package org.acoustid.chromaprint;
 
-import org.acoustid.chromaprint.utils.Base64;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.acoustid.chromaprint.utils.Base64;
 
 /**
  * Main Chromaprint API class for generating audio fingerprints.
