@@ -8,8 +8,9 @@
 
 	<parent>
 		<groupId>io.codeprimate.acoustid</groupId>
-		<artifactId>chromaprint-parent</artifactId>
+		<artifactId>chromaprint-build-dependencies</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../chromaprint-build-dependencies</relativePath>
 	</parent>
 
 	<artifactId>chromaprint-java</artifactId>
@@ -18,42 +19,30 @@
 	<description>Chroma Audio Fingerprinting Library written in Java for the AcoustID Project</description>
 
 	<properties>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-		<commons-codec.version>1.15</commons-codec.version>
-		<junit.version>6.0.2</junit.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
 		<jtransforms.version>3.2</jtransforms.version>
 		<tritonus.version>0.3.7.4</tritonus.version>
 	</properties>
 
 	<dependencies>
+		<!-- Base64 Encoding -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
 		<!-- FFT Library -->
 		<dependency>
 			<groupId>com.github.wendykierp</groupId>
 			<artifactId>JTransforms</artifactId>
 			<version>${jtransforms.version}</version>
 		</dependency>
-
-		<!-- Audio processing (alternative to FFmpeg) -->
+		<!-- Audio Processing (alternative to FFmpeg) -->
 		<dependency>
 			<groupId>com.googlecode.soundlibs</groupId>
 			<artifactId>tritonus-share</artifactId>
 			<version>${tritonus.version}</version>
-		</dependency>
-
-		<!-- Base64 encoding -->
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>${commons-codec.version}</version>
-		</dependency>
-
-		<!-- Testing -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -62,7 +51,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>${maven-surefire-plugin.version}</version>
 			</plugin>
 		</plugins>
 	</build>

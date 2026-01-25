@@ -7,26 +7,16 @@
 
 	<parent>
 		<groupId>io.codeprimate.acoustid</groupId>
-		<artifactId>chromaprint-parent</artifactId>
+		<artifactId>chromaprint-build-dependencies</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../chromaprint-build-dependencies</relativePath>
 	</parent>
 
 	<artifactId>chromaprint-kotlin</artifactId>
 
 	<properties>
 		<kotlin.version>2.3.0</kotlin.version>
-		<junit.version>6.0.2</junit.version>
 	</properties>
-
-	<dependencies>
-		<!-- Add JUnit Jupiter engine for test runtime -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 
 	<!-- https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#maven -->
 	<build>

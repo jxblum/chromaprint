@@ -18,8 +18,9 @@
 	<url>https://acoustid.org/chromaprint</url>
 
 	<scm>
-		<connection>https://github.com/acoustid/chromaprint</connection>
-		<developerConnection>https://github.com/acoustid/chromaprint.git</developerConnection>
+		<url>https://github.com/acoustid/chromaprint</url>
+		<connection>git@github.com:acoustid/chromaprint.git</connection>
+		<developerConnection>git@github.com:acoustid/chromaprint.git</developerConnection>
 	</scm>
 
 	<properties>

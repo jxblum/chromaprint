@@ -7,8 +7,9 @@
 
 	<parent>
 		<groupId>io.codeprimate.acoustid</groupId>
-		<artifactId>chromaprint-parent</artifactId>
+		<artifactId>chromaprint-build-dependencies</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../chromaprint-build-dependencies</relativePath>
 	</parent>
 
 	<artifactId>chromaprint-scala</artifactId>

@@ -15,6 +15,7 @@
     <description>Chroma Audio Fingerprinting Libraries for the AcoustID Project</description>
 
     <modules>
+        <module>chromaprint-build-dependencies</module>
         <module>chromaprint-c</module>
         <module>chromaprint-java</module>
         <module>chromaprint-kotlin</module>
