@@ -14,7 +14,7 @@
 	<artifactId>chromaprint-c</artifactId>
 
 	<name>Chromaprint for C/C++</name>
-	<description>Original Chroma Audio Fingerprinting Library written in Java for the AcoustID Project</description>
+	<description>Original AcoustID Chroma Audio Fingerprinting Library written in C/C++</description>
 	<url>https://acoustid.org/chromaprint</url>
 
 	<scm>

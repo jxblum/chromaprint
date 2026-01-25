@@ -15,4 +15,7 @@
 	<artifactId>chromaprint-scala</artifactId>
 	<url>https://github.com/mgdigital/Chromaprint.scala</url>
 
+	<name>Chromaprint for Scala</name>
+	<description>AcoustID Chromaprint Audio Fingerprinting Library written in Scala</description>
+
 </project>

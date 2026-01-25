@@ -16,7 +16,7 @@
 	<artifactId>chromaprint-java</artifactId>
 
 	<name>Chromaprint for Java</name>
-	<description>Chroma Audio Fingerprinting Library written in Java for the AcoustID Project</description>
+	<description>AcoustID Chromaprint Audio Fingerprinting Library written in Java</description>
 
 	<properties>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
