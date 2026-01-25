@@ -15,18 +15,15 @@
 
 	<properties>
 		<kotlin.version>2.3.0</kotlin.version>
+		<junit.version>6.0.2</junit.version>
 	</properties>
 
 	<dependencies>
 		<!-- Add JUnit Jupiter engine for test runtime -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-params</artifactId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
