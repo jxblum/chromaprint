@@ -1,0 +1,8 @@
+[[codeprimate-acousid-chromaprint-kotlin]]
+= AcoustID Chroma Audio Fingerprinting Library for Kotlin
+
+This module contains a https://kotlinlang.org/docs/home.html[Kotlin] implementation of the https://acoustid.org/chromaprint[AcoustID Chromaprint] library originally written in C/C++.
+
+See [chromaprint-c] module for more details.
+
+TODO

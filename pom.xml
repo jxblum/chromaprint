@@ -17,6 +17,7 @@
     <modules>
         <module>chromaprint-c</module>
         <module>chromaprint-java</module>
+        <module>chromaprint-kotlin</module>
     </modules>
 
     <properties>

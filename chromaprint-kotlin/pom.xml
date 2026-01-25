@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>io.codeprimate.acoustid</groupId>
+		<artifactId>chromaprint-parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>chromaprint-kotlin</artifactId>
+
+	<properties>
+		<kotlin.version>2.3.0</kotlin.version>
+	</properties>
+
+	<dependencies>
+		<!-- Add JUnit Jupiter engine for test runtime -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#maven -->
+	<build>
+		<!-- Lock down plugin versions to avoid using Maven defaults (can be moved to a parent pom file) -->
+		<pluginManagement>
+			<plugins>
+				<!-- No maven-compiler-plugin needed with Kotlin extensions -->
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<!-- Activate Kotlin Maven plugin for main and test sources -->
+			<plugin>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<artifactId>kotlin-maven-plugin</artifactId>
+				<version>${kotlin.version}</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>default-compile</id>
+						<phase>compile</phase>
+						<configuration>
+							<sourceDirs>
+								<sourceDir>src/main/kotlin</sourceDir>
+								<!-- Ensure Kotlin code can reference Java code -->
+								<sourceDir>src/main/java</sourceDir>
+							</sourceDirs>
+						</configuration>
+					</execution>
+					<execution>
+						<id>default-test-compile</id>
+						<phase>test-compile</phase>
+						<configuration>
+							<sourceDirs>
+								<sourceDir>src/test/kotlin</sourceDir>
+								<sourceDir>src/test/java</sourceDir>
+							</sourceDirs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
