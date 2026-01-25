@@ -1,0 +1,6 @@
+[[codeprimate-acousid-chromaprint-scala]]
+= AcoustID Chroma Audio Fingerprinting Library for Scala
+
+This module contains a reference to the https://github.com/mgdigital/Chromaprint.scala[Scala] implementation for the https://acoustid.org/chromaprint[AcoustID Chromaprint] library originally written in C/C++.
+
+For other related projects, see https://github.com/acoustid/chromaprint?tab=readme-ov-file#related-projects[here].

@@ -18,6 +18,7 @@
         <module>chromaprint-c</module>
         <module>chromaprint-java</module>
         <module>chromaprint-kotlin</module>
+        <module>chromaprint-scala</module>
     </modules>
 
     <properties>
