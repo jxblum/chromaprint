@@ -11,30 +11,13 @@ public class Utils {
 
 	private static final byte[] GRAY_CODES = { 0, 1, 3, 2 };
 
-	public static int grayCode(int i) {
-
-		if (i >= 0 && i < GRAY_CODES.length) {
-			return GRAY_CODES[i];
-		}
-
-		return 0;
+	public static int countSetBits(long v) {
+		return Long.bitCount(v);
 	}
 
-	public static double indexToFreq(int i, int frameSize, int sampleRate) {
-		return (double) (i * sampleRate) / frameSize;
-	}
+	public static double frequencyToBark(double frequency) {
 
-	public static int freqToIndex(double freq, int frameSize, int sampleRate) {
-		return (int) Math.round(frameSize * freq / sampleRate);
-	}
-
-	public static boolean isNaN(double value) {
-		return Double.isNaN(value);
-	}
-
-	public static double freqToBark(double f) {
-
-		double z = (26.81 * f) / (1960.0 + f) - 0.53;
+		double z = (26.81 * frequency) / (1960.0 + frequency) - 0.53;
 
 		if (z < 2.0) {
 			z = z + 0.15 * (2.0 - z);
@@ -46,8 +29,22 @@ public class Utils {
 		return z;
 	}
 
-	public static int countSetBits(long v) {
-		return Long.bitCount(v);
+	public static int frequencyToIndex(double frequency, int frameSize, int sampleRate) {
+		return (int) Math.round(frameSize * frequency / sampleRate);
+	}
+
+	public static double indexToFrequency(int index, int frameSize, int sampleRate) {
+		double numerator = index * sampleRate;
+		return numerator / frameSize;
+	}
+
+	public static int grayCode(int i) {
+
+		if (i >= 0 && i < GRAY_CODES.length) {
+			return GRAY_CODES[i];
+		}
+
+		return 0;
 	}
 
 	public static int hammingDistance(long a, long b) {
