@@ -5,17 +5,29 @@ package org.acoustid.chromaprint;
 
 import java.util.List;
 
+/**
+ * @author Lukas Lalinsky
+ * @author Cursor AI
+ * @author John Blum
+ * @see AudioConsumer
+ */
 public class Fingerprinter implements AudioConsumer {
+
     private static final int MIN_FREQ = 28;
     private static final int MAX_FREQ = 3520;
 
-    private Chroma chroma;
-    private ChromaNormalizer chromaNormalizer;
-    private ChromaFilter chromaFilter;
-    private FFT fft;
     private AudioProcessor audioProcessor;
+
+    private Chroma chroma;
+    private ChromaFilter chromaFilter;
+    private ChromaNormalizer chromaNormalizer;
+
+
     private FingerprintCalculator fingerprintCalculator;
     private FingerprinterConfiguration config;
+
+    private FFT fft;
+
     private SilenceRemover silenceRemover;
 
     public Fingerprinter(FingerprinterConfiguration config) {

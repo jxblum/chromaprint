@@ -1,6 +1,5 @@
 // Copyright (C) 2010-2016  Lukas Lalinsky
 // Distributed under the MIT license, see the LICENSE file for details.
-
 package org.acoustid.chromaprint;
 
 import java.util.ArrayList;
@@ -8,12 +7,20 @@ import java.util.List;
 
 import org.acoustid.chromaprint.utils.Base64;
 
+import lombok.Getter;
+
 /**
- * Main Chromaprint API class for generating audio fingerprints.
+ * Main {@literal Chromaprint} API class for generating audio fingerprints.
+ * <p>
+ * {@literal Chromaprint} is a library for generating audio fingerprints, mainly to be used
+ * with the {@literal AcoustID} service. It needs raw audio stream (16-bit signed int) on input.
  *
- * Chromaprint is a library for generating audio fingerprints, mainly to be used
- * with the AcoustID service. It needs raw audio stream (16-bit signed int) on input.
+ * @author Lukas Lalinsky
+ * @author Cursor AI
+ * @author John Blum
+ * @see Fingerprinter
  */
+@Getter
 public class Chromaprint {
 
     public static final int VERSION_MAJOR = 1;
@@ -27,20 +34,20 @@ public class Chromaprint {
     public static final int ALGORITHM_TEST5 = 4;
     public static final int ALGORITHM_DEFAULT = ALGORITHM_TEST2;
 
-    private int algorithm;
-    private Fingerprinter fingerprinter;
-    private FingerprintCompressor compressor;
+    private final int algorithm;
+
+    private final Fingerprinter fingerprinter;
+
+    private final FingerprintCompressor compressor;
 
     /**
-     * Create a new Chromaprint context.
+     * Create a new {@link Chromaprint} context.
      *
      * @param algorithm the fingerprint algorithm version to use, or ALGORITHM_DEFAULT
      */
     public Chromaprint(int algorithm) {
         this.algorithm = algorithm;
-        this.fingerprinter = new Fingerprinter(
-            FingerprinterConfigurationFactory.create(algorithm)
-        );
+        this.fingerprinter = new Fingerprinter(FingerprinterConfigurationFactory.create(algorithm));
         this.compressor = new FingerprintCompressor();
     }
 
@@ -55,14 +62,7 @@ public class Chromaprint {
      * Get the version string.
      */
     public static String getVersion() {
-        return VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH;
-    }
-
-    /**
-     * Get the algorithm this context is configured to use.
-     */
-    public int getAlgorithm() {
-        return algorithm;
+        return "%s.%s.%s".formatted(VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
     }
 
     /**
@@ -188,7 +188,7 @@ public class Chromaprint {
      * @return number of items in the current raw fingerprint
      */
     public int getRawFingerprintSize() {
-        return fingerprinter.getFingerprint().size();
+        return this.fingerprinter.getFingerprint().size();
     }
 
     /**
@@ -197,14 +197,14 @@ public class Chromaprint {
      * @return the hash value
      */
     public long getFingerprintHash() {
-        return SimHash.simHash(fingerprinter.getFingerprint());
+        return SimHash.simHash(this.fingerprinter.getFingerprint());
     }
 
     /**
      * Clear the current fingerprint, but allow more data to be processed.
      */
     public void clearFingerprint() {
-        fingerprinter.clearFingerprint();
+        this.fingerprinter.clearFingerprint();
     }
 
     /**
@@ -269,23 +269,9 @@ public class Chromaprint {
     }
 
     /**
-     * Result of decoding a fingerprint.
-     */
-    public static class FingerprintResult {
-        private final long[] fingerprint;
-        private final int algorithm;
+         * Result of decoding a fingerprint.
+         */
+    public record FingerprintResult(long[] fingerprint, int algorithm) {
 
-        public FingerprintResult(long[] fingerprint, int algorithm) {
-            this.fingerprint = fingerprint;
-            this.algorithm = algorithm;
-        }
-
-        public long[] getFingerprint() {
-            return fingerprint;
-        }
-
-        public int getAlgorithm() {
-            return algorithm;
-        }
     }
 }
